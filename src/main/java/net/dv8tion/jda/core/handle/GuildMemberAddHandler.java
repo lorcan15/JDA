@@ -39,7 +39,7 @@ public class GuildMemberAddHandler extends SocketHandler
         GuildImpl guild = (GuildImpl) api.getGuildMap().get(id);
         if (guild == null)
         {
-            api.getEventCache().cache(EventCache.Type.GUILD, id, () -> handle(responseNumber, allContent));
+            //api.//getJDA().getEventCache()().cache(EventCache.Type.GUILD, id, () -> handle(responseNumber, allContent));
             EventCache.LOG.debug("Caching member for guild that is not yet cached. Guild ID: {} JSON: {}", id, content);
             return null;
         }
@@ -49,7 +49,7 @@ public class GuildMemberAddHandler extends SocketHandler
                 new GuildMemberJoinEvent(
                         api, responseNumber,
                         member));
-        api.getEventCache().playbackCache(EventCache.Type.USER, member.getUser().getIdLong());
+        //api.//getJDA().getEventCache()().playbackCache(EventCache.Type.USER, member.getUser().getIdLong());
         return null;
     }
 }

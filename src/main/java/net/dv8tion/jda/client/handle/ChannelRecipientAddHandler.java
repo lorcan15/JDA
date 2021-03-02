@@ -42,7 +42,7 @@ public class ChannelRecipientAddHandler extends SocketHandler
         GroupImpl group = (GroupImpl) api.asClient().getGroupById(groupId);
         if (group == null)
         {
-            api.getEventCache().cache(EventCache.Type.CHANNEL, groupId, () -> handle(responseNumber, allContent));
+            //api.//getJDA().getEventCache()().cache(EventCache.Type.CHANNEL, groupId, () -> handle(responseNumber, allContent));
             EventCache.LOG.debug("Received a CHANNEL_RECIPIENT_ADD for a group that is not yet cached! JSON: {}", content);
             return null;
         }
@@ -61,7 +61,7 @@ public class ChannelRecipientAddHandler extends SocketHandler
                         api, responseNumber,
                         group, user));
 
-        api.getEventCache().playbackCache(EventCache.Type.USER, user.getIdLong());
+        //api.//getJDA().getEventCache()().playbackCache(EventCache.Type.USER, user.getIdLong());
         return null;
     }
 }

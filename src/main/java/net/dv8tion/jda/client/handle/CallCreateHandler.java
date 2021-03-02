@@ -51,7 +51,7 @@ public class CallCreateHandler extends SocketHandler
             channel = api.getPrivateChannelMap().get(channelId);
         if (channel == null)
         {
-            api.getEventCache().cache(EventCache.Type.CHANNEL, channelId, () -> handle(responseNumber, allContent));
+            //api.//getJDA().getEventCache()().cache(EventCache.Type.CHANNEL, channelId, () -> handle(responseNumber, allContent));
             EventCache.LOG.debug("Received a CALL_CREATE for a Group/PrivateChannel that is not yet cached. JSON: {}", content);
             return null;
         }
@@ -108,7 +108,7 @@ public class CallCreateHandler extends SocketHandler
 
             api.asClient().getCallUserMap().put(userId, cUser);
         }
-        api.getEventCache().playbackCache(EventCache.Type.CALL, channelId);
+        //api.//getJDA().getEventCache()().playbackCache(EventCache.Type.CALL, channelId);
         return null;
     }
 }

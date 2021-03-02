@@ -54,7 +54,7 @@ public class GuildDeleteHandler extends SocketHandler
         boolean unavailable = Helpers.optBoolean(content, "unavailable");
         if (guild == null)
         {
-//            api.getEventCache().cache(EventCache.Type.GUILD, id, () -> handle(responseNumber, allContent));
+//            //api.//getJDA().getEventCache()().cache(EventCache.Type.GUILD, id, () -> handle(responseNumber, allContent));
             WebSocketClient.LOG.debug("Received GUILD_DELETE for a Guild that is not currently cached. ID: {} unavailable: {}", id, unavailable);
             return null;
         }
@@ -147,7 +147,7 @@ public class GuildDeleteHandler extends SocketHandler
                     }
                 }
             }
-            api.getEventCache().clear(EventCache.Type.USER, memberId);
+            //api.//getJDA().getEventCache()().clear(EventCache.Type.USER, memberId);
             return true;
         });
 
@@ -161,7 +161,7 @@ public class GuildDeleteHandler extends SocketHandler
             new GuildLeaveEvent(
                 api, responseNumber,
                 guild));
-        api.getEventCache().clear(EventCache.Type.GUILD, id);
+        //api.//getJDA().getEventCache()().clear(EventCache.Type.GUILD, id);
         return null;
     }
 }

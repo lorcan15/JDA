@@ -73,7 +73,7 @@ public class ChannelUpdateHandler extends SocketHandler
                 TextChannelImpl textChannel = (TextChannelImpl) api.getTextChannelMap().get(channelId);
                 if (textChannel == null)
                 {
-                    api.getEventCache().cache(EventCache.Type.CHANNEL, channelId, () -> handle(responseNumber, allContent));
+                    //api.//getJDA().getEventCache()().cache(EventCache.Type.CHANNEL, channelId, () -> handle(responseNumber, allContent));
                     EventCache.LOG.debug("CHANNEL_UPDATE attempted to update a TextChannel that does not exist. JSON: {}", content);
                     return null;
                 }
@@ -146,7 +146,7 @@ public class ChannelUpdateHandler extends SocketHandler
                 int bitrate = content.getInt("bitrate");
                 if (voiceChannel == null)
                 {
-                    api.getEventCache().cache(EventCache.Type.CHANNEL, channelId, () -> handle(responseNumber, allContent));
+                    //api.//getJDA().getEventCache()().cache(EventCache.Type.CHANNEL, channelId, () -> handle(responseNumber, allContent));
                     EventCache.LOG.debug("CHANNEL_UPDATE attempted to update a VoiceChannel that does not exist. JSON: {}", content);
                     return null;
                 }
@@ -215,7 +215,7 @@ public class ChannelUpdateHandler extends SocketHandler
                 CategoryImpl category = (CategoryImpl) api.getCategoryById(channelId);
                 if (category == null)
                 {
-                    api.getEventCache().cache(EventCache.Type.CHANNEL, channelId, () -> handle(responseNumber, allContent));
+                    //api.//getJDA().getEventCache()().cache(EventCache.Type.CHANNEL, channelId, () -> handle(responseNumber, allContent));
                     EventCache.LOG.debug("CHANNEL_UPDATE attempted to update a Category that does not exist. JSON: {}", content);
                     return null;
                 }
@@ -321,8 +321,8 @@ public class ChannelUpdateHandler extends SocketHandler
 
                 if (permHolder == null)
                 {
-                    api.getEventCache().cache(EventCache.Type.ROLE, id, () ->
-                            handlePermissionOverride(override, channel, content, changedPermHolders, containedPermHolders));
+                    //api.//getJDA().getEventCache()().cache(EventCache.Type.ROLE, id, () ->
+                  //          handlePermissionOverride(override, channel, content, changedPermHolders, containedPermHolders));
                     EventCache.LOG.debug("CHANNEL_UPDATE attempted to create or update a PermissionOverride for a Role that doesn't exist! RoleId: {} JSON: {}", id, content);
                     return;
                 }
@@ -333,8 +333,8 @@ public class ChannelUpdateHandler extends SocketHandler
                 permHolder = channel.getGuild().getMemberById(id);
                 if (permHolder == null)
                 {
-                    api.getEventCache().cache(EventCache.Type.USER, id, () ->
-                            handlePermissionOverride(override, channel, content, changedPermHolders, containedPermHolders));
+                    //api.//getJDA().getEventCache()().cache(EventCache.Type.USER, id, () ->
+                            //handlePermissionOverride(override, channel, content, changedPermHolders, containedPermHolders));
                     EventCache.LOG.debug("CHANNEL_UPDATE attempted to create or update a PermissionOverride for Member that doesn't exist in this Guild! MemberId: {} JSON: {}", id, content);
                     return;
                 }
@@ -370,7 +370,7 @@ public class ChannelUpdateHandler extends SocketHandler
         GroupImpl group = (GroupImpl) api.asClient().getGroupById(groupId);
         if (group == null)
         {
-            api.getEventCache().cache(EventCache.Type.CHANNEL, groupId, () -> handle(responseNumber, allContent));
+            //api.//getJDA().getEventCache()().cache(EventCache.Type.CHANNEL, groupId, () -> handle(responseNumber, allContent));
             EventCache.LOG.debug("Received CHANNEL_UPDATE for a group that was not yet cached. JSON: {}", content);
             return;
         }

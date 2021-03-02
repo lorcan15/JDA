@@ -102,7 +102,7 @@ public class GuildMemberRemoveHandler extends SocketHandler
                     }
                 }
             }
-            api.getEventCache().clear(EventCache.Type.USER, userId);
+            //api.//getJDA().getEventCache()().clear(EventCache.Type.USER, userId);
         }
         api.getEventManager().handle(
                 new GuildMemberLeaveEvent(

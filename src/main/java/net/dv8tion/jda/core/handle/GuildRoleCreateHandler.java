@@ -41,7 +41,7 @@ public class GuildRoleCreateHandler extends SocketHandler
         GuildImpl guild = (GuildImpl) api.getGuildMap().get(guildId);
         if (guild == null)
         {
-            api.getEventCache().cache(EventCache.Type.GUILD, guildId, () -> handle(responseNumber, allContent));
+            //api.//getJDA().getEventCache()().cache(EventCache.Type.GUILD, guildId, () -> handle(responseNumber, allContent));
             EventCache.LOG.debug("GUILD_ROLE_CREATE was received for a Guild that is not yet cached: {}", content);
             return null;
         }
@@ -51,7 +51,7 @@ public class GuildRoleCreateHandler extends SocketHandler
                 new RoleCreateEvent(
                         api, responseNumber,
                         newRole));
-        api.getEventCache().playbackCache(EventCache.Type.ROLE, newRole.getIdLong());
+        //api.//getJDA().getEventCache()().playbackCache(EventCache.Type.ROLE, newRole.getIdLong());
         return null;
     }
 }

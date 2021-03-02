@@ -52,7 +52,7 @@ public class GuildCreateHandler extends SocketHandler
                             new GuildJoinEvent(
                                 api, responseNumber,
                                 guild));
-                        api.getEventCache().playbackCache(EventCache.Type.GUILD, guild.getIdLong());
+                        //api.//getJDA().getEventCache()().playbackCache(EventCache.Type.GUILD, guild.getIdLong());
                     }
                     else if (!wasAvail) //was previously unavailable
                     {

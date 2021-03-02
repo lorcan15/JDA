@@ -156,6 +156,9 @@ public class Route
         public static final Route EXECUTE_WEBHOOK        = new Route(POST, "webhooks/{webhook_id}/{token}",        "webhook_id");
         public static final Route EXECUTE_WEBHOOK_SLACK  = new Route(POST, "webhooks/{webhook_id}/{token}/slack",  "webhook_id");
         public static final Route EXECUTE_WEBHOOK_GITHUB = new Route(POST, "webhooks/{webhook_id}/{token}/github", "webhook_id");
+
+        public static final Route DELETE_WEBHOOK_MESSAGE = new Route(DELETE, "webhooks/{webhook.id}/{webhook.token}/messages/{message.id}");
+
     }
 
     public static class Roles
